@@ -1,4 +1,4 @@
-const DISCORD_WEBHOOK_URL = process.env.VITE_DISCORD_WEBHOOK_URL as string;
+const DISCORD_WEBHOOK_URL = import.meta.env.VITE_DISCORD_WEBHOOK_URL as string;
 
 export async function sendToDiscord(formData: {
   email: string;

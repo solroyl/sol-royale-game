@@ -42,7 +42,7 @@ export default function Features() {
     <section id="features" className="py-16 lg:py-24 relative">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-black text-center mb-16">
-          <span className="gradient-text">Why Sol Royale?</span>
+          <span className="gradient-text">Why SOL Royale?</span>
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -131,7 +131,7 @@ export default function Register() {
         <div className="container mx-auto px-4 relative z-10">
           <Card className="card-sol p-12 max-w-2xl mx-auto text-center">
             <div className="text-6xl mb-6">🎉</div>
-            <h1 className="text-3xl font-bold mb-4 gradient-text">Welcome to Sol Royale!</h1>
+            <h1 className="text-3xl font-bold mb-4 gradient-text">Welcome to SOL Royale!</h1>
             <p className="text-muted-foreground mb-8">
               You're now part of the exclusive early access program. 
               We'll keep you updated on all the latest developments.
@@ -198,7 +198,7 @@ export default function Register() {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-display font-black mb-6">
-            <span className="gradient-text">Join Sol Royale</span>
+            <span className="gradient-text">Join SOL Royale</span>
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
