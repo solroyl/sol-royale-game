@@ -278,21 +278,6 @@ export default function Register() {
               </div>
             </div>
             
-            <div>
-              <Label htmlFor="experience">Gaming Experience</Label>
-              <select
-                id="experience"
-                value={formData.experience}
-                onChange={(e) => handleInputChange('experience', e.target.value)}
-                className="w-full mt-2 px-3 py-2 bg-input border border-border rounded-md focus:border-sol-orange focus:ring-2 focus:ring-sol-orange/20 outline-none"
-              >
-                <option value="">Select your experience level</option>
-                <option value="beginner">Beginner</option>
-                <option value="intermediate">Intermediate</option>
-                <option value="advanced">Advanced</option>
-                <option value="pro">Professional</option>
-              </select>
-            </div>
             
             <div>
               <Label htmlFor="referralCode">Referral Code (Optional)</Label>
