@@ -8,7 +8,7 @@ import { ArrowLeft, Users, Clock, Gift, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import ParticleBackground from '@/components/ParticleBackground';
 import { useToast } from '@/hooks/use-toast';
-
+import { sendToDiscord } from "@/lib/discord";
 export default function Register() {
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -76,7 +76,7 @@ export default function Register() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+  
     if (!formData.agreeToTerms) {
       toast({
         title: "Terms Required",
@@ -85,20 +85,29 @@ export default function Register() {
       });
       return;
     }
-
+  
     setIsSubmitting(true);
-    
+  
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      const discordResult = await sendToDiscord(formData);
+  
+      if (!discordResult.success) {
+        console.error("Discord error:", discordResult.error);
+        toast({
+          title: "Partial Success",
+          description:
+            "Registration saved, but Discord notification failed.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Registration Successful! 🎉",
+          description: "Welcome to Sol Royale Early Access",
+        });
+      }
+  
       setSubmitted(true);
-      setAvailableSeats(prev => Math.max(0, prev - 1));
-      
-      toast({
-        title: "Registration Successful! 🎉",
-        description: "Welcome to Sol Royale Early Access",
-      });
+      setAvailableSeats((prev) => Math.max(0, prev - 1));
     } catch (error) {
       toast({
         title: "Registration Failed",
