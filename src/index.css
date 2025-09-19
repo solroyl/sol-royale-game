@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sol Royale Design System - Gaming blockchain theme */
+
+@layer base {
+  :root {
+    /* Core Game Colors */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+
+    /* Sol Royale Brand Colors */
+    --sol-purple: 280 100% 35%;
+    --sol-orange: 15 100% 50%;
+    --sol-purple-glow: 280 100% 45%;
+    --sol-orange-glow: 15 100% 60%;
+
+    /* Card & Surface Colors */
+    --card: 280 50% 5%;
+    --card-foreground: 0 0% 100%;
+    --card-hover: 280 40% 8%;
+
+    /* Primary Colors (Sol Purple) */
+    --primary: 280 100% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 280 100% 45%;
+
+    /* Secondary Colors (Sol Orange) */
+    --secondary: 15 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 15 100% 60%;
+
+    /* Accent & States */
+    --accent: 280 60% 15%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    /* Gaming UI Elements */
+    --border: 280 30% 20%;
+    --input: 280 30% 12%;
+    --ring: 280 100% 35%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* System */
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-sol: linear-gradient(135deg, hsl(var(--sol-purple)), hsl(var(--sol-orange)));
+    --gradient-sol-glow: linear-gradient(135deg, hsl(var(--sol-purple-glow)), hsl(var(--sol-orange-glow)));
+    --gradient-bg: linear-gradient(135deg, hsl(280 50% 2%) 0%, hsl(280 40% 4%) 25%, hsl(280 50% 2%) 50%, hsl(280 60% 1%) 100%);
+    --gradient-card: linear-gradient(135deg, hsla(var(--sol-purple), 0.1), hsla(var(--sol-orange), 0.05));
+
+    /* Shadows & Effects */
+    --shadow-sol: 0 4px 20px hsla(var(--sol-purple), 0.4);
+    --shadow-sol-glow: 0 6px 30px hsla(var(--sol-orange), 0.6);
+    --shadow-card: 0 10px 30px hsla(var(--sol-orange), 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-bg);
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* Sol Royale Logo */
+  .logo-sol {
+    color: hsl(var(--sol-purple));
+    text-shadow: 0 0 20px hsla(var(--sol-purple), 0.8);
+  }
+
+  .logo-royale {
+    color: hsl(var(--sol-orange));
+    text-shadow: 0 0 20px hsla(var(--sol-orange), 0.8);
+  }
+
+  .logo-flame {
+    animation: flicker 2s infinite;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-sol);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  /* Glow Effects */
+  .glow-sol {
+    box-shadow: var(--shadow-sol);
+  }
+
+  .glow-sol-hover:hover {
+    box-shadow: var(--shadow-sol-glow);
+  }
+
+  /* Card Variants */
+  .card-sol {
+    background: var(--gradient-card);
+    border: 1px solid hsla(var(--sol-purple), 0.3);
+    backdrop-filter: blur(10px);
+    transition: var(--transition-smooth);
+  }
+
+  .card-sol:hover {
+    transform: translateY(-5px);
+    border-color: hsl(var(--sol-orange));
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Particle Background */
+  .particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  /* Animation Keyframes */
+  @keyframes flicker {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+  }
+
+  /* Utility Classes */
+  .animate-flicker { animation: flicker 2s infinite; }
+  .animate-gradient-shift { animation: gradient-shift 3s ease infinite; }
+  .animate-pulse-glow { animation: pulse-glow 2s infinite; }
+  .animate-float { animation: float 20s infinite ease-in-out; }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
