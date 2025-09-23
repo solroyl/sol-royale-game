@@ -79,6 +79,24 @@ export default function Navbar() {
             >
               Farming
             </button>
+            <button 
+              onClick={() => navigate('/games/purge')}
+              className="text-foreground hover:text-secondary transition-colors"
+            >
+              Purge
+            </button>
+            <button 
+              onClick={() => navigate('/games')}
+              className="text-foreground hover:text-secondary transition-colors"
+            >
+              Games
+            </button>
+            <button 
+              onClick={() => navigate('/marketplace')}
+              className="text-foreground hover:text-secondary transition-colors"
+            >
+              Marketplace
+            </button>
             <a 
               href="https://genuine-rolypoly-b3aa60.netlify.app/whitepaper.pdf" 
               target="_blank" 
@@ -138,6 +156,18 @@ export default function Navbar() {
             >
               Farming
             </button>
+            <button 
+              onClick={() => navigate('/purge')}
+              className="block w-full text-left text-foreground hover:text-secondary transition-colors py-2"
+            >
+              Purge
+            </button>
+             <button 
+              onClick={() => navigate('/marketplace')}
+              className="block w-full text-left text-foreground hover:text-secondary transition-colors py-2"
+            >
+              Marketplace
+            </button>
             <a 
               href="https://genuine-rolypoly-b3aa60.netlify.app/whitepaper.pdf" 
               target="_blank" 
@@ -146,6 +176,8 @@ export default function Navbar() {
             >
               Whitepaper
             </a>
+
+
             <Button 
               variant="hero" 
               onClick={() => navigate('/register')}
